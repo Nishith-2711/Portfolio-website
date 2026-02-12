@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Skills = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
+  const [activeTab, setActiveTab] = useState("Programming Languages");
 
   const skills = [
     {
@@ -70,37 +71,51 @@ const Skills = () => {
       <div className="container">
         <h2 className="section-title">Technical Skills</h2>
 
-        {skills.map((category, index) => (
-          <div key={index} className="skills-category">
-            <h3 className="skills-category-title">{category.section}</h3>
+        <div className="skills-tabs">
+          {skills.map((category) => (
+            <button
+              key={category.section}
+              className={`tab-btn ${activeTab === category.section ? "active" : ""}`}
+              onClick={() => setActiveTab(category.section)}
+            >
+              {category.section}
+            </button>
+          ))}
+        </div>
 
-            <div className="skills-grid">
-              {category.items.map((skill, idx) => (
-                <div key={idx} className="skill-item">
-                  <div className="skill-icon">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      onError={(e) => {
-                        // Fallback to text if image fails to load
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'block';
-                      }}
-                    />
-                    <span style={{ display: 'none' }}>{skill.name.charAt(0)}</span>
-                  </div>
+        <div className="skills-content-display">
+          {skills
+            .filter((category) => category.section === activeTab)
+            .map((category, index) => (
+              <div key={index} className="skills-category-content">
+                <div className="skills-grid">
+                  {category.items.map((skill, idx) => (
+                    <div key={idx} className="skill-item">
+                      <div className="skill-icon">
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'block';
+                          }}
+                        />
+                        <span style={{ display: 'none' }}>{skill.name.charAt(0)}</span>
+                      </div>
 
-                  <div className="skill-content">
-                    <div className="skill-name">{skill.name}</div>
-                  </div>
+                      <div className="skill-content">
+                        <div className="skill-name">{skill.name}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
+              </div>
+            ))}
+        </div>
       </div>
     </section>
   );
 };
+
 
 export default Skills;

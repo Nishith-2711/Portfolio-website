@@ -13,7 +13,7 @@ const Hero = () => {
           <h1 className="hero-title">
             Hi, I'm <span className="highlight">Nishith Hingoo</span>
           </h1>
-          <h2 className="hero-subtitle">Computer Science Software Engineer</h2>
+          <h2 className="hero-subtitle">Software Engineer</h2>
           <p className="hero-description">
             Master's student at Rochester Institute of Technology with experience in embedded systems,
             data analysis, and full-stack development. Passionate about creating innovative solutions

@@ -55,9 +55,6 @@ const ThemeToggle = () => {
             </div>
           </div>
         </div>
-        <span className="theme-toggle-label">
-          {isDarkMode ? 'Light' : 'Dark'}
-        </span>
       </div>
     </button>
   );

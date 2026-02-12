@@ -250,6 +250,10 @@ p {
   letter-spacing: -0.02em;
 }
 
+.logo-link {
+  text-decoration: none;
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -791,48 +795,18 @@ section {
 }
 
 /* About Section - fill viewport like Hero for consistent full-page layout on laptop and monitor */
+/* About Section - Terminal Style */
 .about {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
-    var(--bg-secondary);
+  background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
   padding: var(--spacing-3xl) 0;
 }
 
-.about::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 25%);
-  animation: float 25s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-
-.dark .about {
-  background:
-    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
-    var(--bg-secondary);
-}
-
-.dark .about::before {
-  background-image:
-    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 25%),
-    radial-gradient(circle at 85% 85%, rgba(251, 191, 36, 0.12) 0%, transparent 25%);
-}
-
-/* Match hero section: same max-width and centering for consistent layout on laptop and monitor */
 .about-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -840,58 +814,195 @@ section {
   width: 100%;
 }
 
-@media (min-width: 1264px) {
-  .about-inner {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
 .about-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: var(--spacing-2xl);
-  align-items: start;
-  padding: var(--spacing-lg) 0;
+  align-items: center;
 }
 
-.about-text p {
-  margin-bottom: var(--spacing-md);
-  font-size: 1.125rem;
+.about-text-terminal {
+  background: #1e1e1e;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: 'Fira Code', monospace;
+  border: 1px solid #333;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red {
+  background: #ff5f56;
+}
+
+.terminal-dot.yellow {
+  background: #ffbd2e;
+}
+
+.terminal-dot.green {
+  background: #27c93f;
+}
+
+.terminal-title {
+  color: #999;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.terminal-body {
+  padding: 20px;
+  color: #d4d4d4;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.keyword {
+  color: #569cd6;
+}
+
+/* blue */
+.variable {
+  color: #9cdcfe;
+}
+
+/* light blue */
+.string {
+  color: #ce9178;
+}
+
+/* orange/brown */
+.property {
+  color: #9cdcfe;
+}
+
+/* light blue */
+.function {
+  color: #dcdcaa;
+}
+
+/* yellow */
+.method {
+  color: #dcdcaa;
+}
+
+/* yellow */
+.comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+/* green */
+
+.indent {
+  padding-left: 20px;
+}
+
+/* About Stats */
+.about-stats-container {
+  display: flex;
+  justify-content: center;
 }
 
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
+  width: 100%;
 }
 
 .stat {
-  text-align: center;
+  background: var(--bg-primary);
   padding: var(--spacing-lg);
-  background-color: var(--bg-primary);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-light);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  transition: transform var(--transition-normal);
+  border: 1px solid var(--border-color);
+}
+
+.stat:hover {
+  transform: translateY(-5px);
 }
 
 .stat h3 {
   font-size: 2.5rem;
   color: var(--primary-color);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 5px;
 }
 
 .stat p {
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  font-weight: 500;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .about-content {
     grid-template-columns: 1fr;
   }
+}
 
-  .about-stats {
-    grid-template-columns: 1fr 1fr;
+/* Skills Tabs */
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+  font-size: 0.95rem;
+}
+
+.tab-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--primary-color);
+}
+
+.tab-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-medium);
+}
+
+.skills-content-display {
+  min-height: 400px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -1791,4 +1902,39 @@ section {
 
 .btn:hover::before {
   left: 100%;
+}
+
+/* Scroll To Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+.scroll-btn {
+  background-color: var(--primary-color);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.scroll-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-btn svg {
+  width: 24px;
+  height: 24px;
 }

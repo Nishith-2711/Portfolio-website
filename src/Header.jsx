@@ -37,17 +37,17 @@ function Header() {
             <div className="container">
                 <div className="header-content">
                     <div className="logo">
-                        <a href="#hero" onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}>
+                        <a href="#hero" className="logo-link" onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}>
                             <span className="logo-text">Nishith Hingoo</span>
                         </a>
                     </div>
-                    
+
                     <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
                         <ul className="nav-list">
                             {navItems.map((item, index) => (
                                 <li key={index} className="nav-item">
-                                    <a 
-                                        href={item.href} 
+                                    <a
+                                        href={item.href}
                                         className="nav-link"
                                         onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                                     >
@@ -60,7 +60,7 @@ function Header() {
 
                     <div className="header-actions">
                         <ThemeToggle />
-                        <button 
+                        <button
                             className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             aria-label="Toggle mobile menu"
