@@ -1,17 +1,19 @@
 import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import useTypewriter from '../hooks/useTypewriter';
 // Import your LinkedIn photo - replace 'linkedin-photo.jpg' with your actual photo filename
 // import linkedinPhoto from '../assets/images/linkedin-photo.jpg';
 
 const Hero = () => {
   const [ref, isVisible] = useScrollAnimation(0.3);
+  const { displayText } = useTypewriter('Nishith Hingoo');
 
   return (
     <section id="hero" className={`hero ${isVisible ? 'visible' : ''}`} ref={ref}>
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Nishith Hingoo</span>
+            Hi, I'm <span className="highlight">{displayText}<span className="cursor">|</span></span>
           </h1>
           <h2 className="hero-subtitle">Software Engineer</h2>
           <p className="hero-description">
@@ -21,6 +23,7 @@ const Hero = () => {
           </p>
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">View My Work</a>
+            <a href="/Nishith_resume.pdf" download="Nishith_Hingoo_Resume.pdf" className="btn btn-secondary">Download Resume</a>
             <a href="#contact" className="btn btn-secondary">Get In Touch</a>
           </div>
         </div>

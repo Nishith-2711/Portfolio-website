@@ -7,7 +7,8 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
-// import Contact from "./components/Contact";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import FloatingParticles from "./components/FloatingParticles";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -26,20 +27,9 @@ function App() {
           <Projects />
           <Skills />
           <Education />
-          {/* <Contact /> */}
+          <Contact />
         </main>
-        <footer className="footer">
-          <div className="container">
-            <div className="footer-content">
-              <p>&copy; 2025 Nishith Hingoo. All rights reserved.</p>
-              <div className="footer-links">
-                <a href="https://linkedin.com/in/nishithhingoo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/Nishith-2711" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="mailto:nishithhingoo@gmail.com">Email</a>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </ThemeProvider>
   );

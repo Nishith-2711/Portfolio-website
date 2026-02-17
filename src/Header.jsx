@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ThemeToggle from './components/ThemeToggle';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -59,6 +60,14 @@ function Header() {
                     </nav>
 
                     <div className="header-actions">
+                        <div className="social-links">
+                            <a href="https://github.com/Nishith-2711" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+                                <FaGithub />
+                            </a>
+                            <a href="https://linkedin.com/in/nishithhingoo" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+                                <FaLinkedin />
+                            </a>
+                        </div>
                         <ThemeToggle />
                         <button
                             className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
