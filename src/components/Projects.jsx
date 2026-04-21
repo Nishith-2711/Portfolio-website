@@ -1,9 +1,24 @@
-import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import TiltCard from './TiltCard';
 
 const Projects = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
   const projects = [
+    {
+      title: "Cricket Video Stabilizer",
+      description: "Full-stack asynchronous video processing service that removes camera shake from cricket footage using classical computer vision. Demonstrates system design with async job queues, real-time processing, and containerized deployment.",
+      technologies: ["FastAPI", "Redis/RQ", "OpenCV", "FFmpeg", "Docker"],
+      features: [
+        "SIFT feature detection with Lowe's ratio test for robust keypoint matching",
+        "Translation-only stabilization using Gaussian smoothing on camera trajectory",
+        "Async job queue (Redis + RQ) with background worker for non-blocking uploads",
+        "Multi-container Docker deployment with live status polling",
+        "Handles MP4, AVI, MOV with automatic H.264 normalization"
+      ],
+      date: "April 2026",
+      github: "https://github.com/Nishith-2711/Cricket_video_stabilization",
+      demo: "https://github.com/Nishith-2711/Cricket_video_stabilization#how-it-works"
+    },
     {
       title: "Real-Time Tactical Football Analysis with AI",
       description: "Built a computer vision–based football analytics system using YOLOv8 to detect and track players, referees, and footballs in real time with over 90% detection accuracy.",
@@ -66,7 +81,11 @@ const Projects = () => {
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
+            <TiltCard
+              key={index}
+              className={`project-card${index < 2 ? ' project-card--featured' : ''}`}
+              tiltOptions={{ max: index < 2 ? 7 : 11, scale: 1.02 }}
+            >
               <div className="project-header">
                 <h3 className="project-title">{project.title}</h3>
                 <span className="project-date">{project.date}</span>
@@ -90,7 +109,7 @@ const Projects = () => {
                   <span>Live Demo</span>
                 </a>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

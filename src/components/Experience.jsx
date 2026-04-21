@@ -1,5 +1,5 @@
-import React from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import TiltCard from './TiltCard';
 
 const Experience = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
@@ -45,7 +45,7 @@ const Experience = () => {
         <h2 className="section-title">Experience</h2>
         <div className="experience-timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className="experience-item">
+            <TiltCard key={index} className="experience-item" tiltOptions={{ max: 6, scale: 1.015 }}>
               <div className="experience-header">
                 <div className="company-info">
                   <span className="company-logo">{exp.companyLogo}</span>
@@ -80,7 +80,7 @@ const Experience = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

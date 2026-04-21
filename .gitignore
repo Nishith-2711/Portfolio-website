@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .env
+
+claude.md
+Frontend_skills.md
+project.md

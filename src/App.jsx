@@ -9,15 +9,12 @@ import Skills from "./components/Skills";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import FloatingParticles from "./components/FloatingParticles";
-
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <ThemeProvider>
       <div className="App">
-        <FloatingParticles />
         <ScrollToTop />
         <Header />
         <main>
