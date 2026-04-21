@@ -16,8 +16,8 @@ const Projects = () => {
         "Handles MP4, AVI, MOV with automatic H.264 normalization"
       ],
       date: "April 2026",
-      github: "https://github.com/Nishith-2711/Cricket_video_stabilization",
-      demo: "https://github.com/Nishith-2711/Cricket_video_stabilization#how-it-works"
+      github: "https://github.com/Nishith-2711/Distributed-Video-Stabilization-Service-for-Sports-Broadcast-Enhancement",
+      demo: "https://github.com/Nishith-2711/Distributed-Video-Stabilization-Service-for-Sports-Broadcast-Enhancement#how-it-works"
     },
     {
       title: "Real-Time Tactical Football Analysis with AI",
