@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import TiltCard from './TiltCard';
+import StabilizerDemo from './StabilizerDemo';
 
 const Projects = () => {
   const [ref, isVisible] = useScrollAnimation(0.2);
+  const [showDemo, setShowDemo] = useState(false);
   const projects = [
     {
       title: "Cricket Video Stabilizer",
@@ -76,6 +79,8 @@ const Projects = () => {
   ];
 
   return (
+    <>
+    {showDemo && <StabilizerDemo onClose={() => setShowDemo(false)} />}
     <section id="projects" className={`projects ${isVisible ? 'visible' : ''}`} ref={ref}>
       <div className="container">
         <h2 className="section-title">Featured Projects</h2>
@@ -105,15 +110,22 @@ const Projects = () => {
                 <a href={project.github} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
                   <span>GitHub</span>
                 </a>
-                <a href={project.demo} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                  <span>Live Demo</span>
-                </a>
+                {project.title === 'Cricket Video Stabilizer' ? (
+                  <button className="btn btn-primary" onClick={() => setShowDemo(true)}>
+                    <span>Try it live</span>
+                  </button>
+                ) : (
+                  <a href={project.demo} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <span>Live Demo</span>
+                  </a>
+                )}
               </div>
             </TiltCard>
           ))}
         </div>
       </div>
     </section>
+    </>
   );
 };
 
