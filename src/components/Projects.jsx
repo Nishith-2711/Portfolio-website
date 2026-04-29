@@ -32,7 +32,7 @@ const Projects = () => {
         "Computed player speed and distance within ±5% of ground-truth estimates"
       ],
       date: "September 2025",
-      github: "#",
+      github: "https://github.com/Nishith-2711/Football-Analysis",
       demo: "#"
     },
     {
@@ -59,7 +59,7 @@ const Projects = () => {
         "Created fare correlation analysis for data-driven decision making"
       ],
       date: "January 2025",
-      github: "#",
+      github: "https://github.com/Nishith-2711/Uber-data-analysis",
       demo: "#"
     },
     {
@@ -73,7 +73,7 @@ const Projects = () => {
         "Enabled real-time updates for public health monitoring"
       ],
       date: "October 2024",
-      github: "#",
+      github: "https://github.com/Nishith-2711/SQLPortfolio",
       demo: "#"
     }
   ];
