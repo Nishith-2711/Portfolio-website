@@ -8,6 +8,34 @@ const Projects = () => {
   const [showDemo, setShowDemo] = useState(false);
   const projects = [
     {
+      title: "LLM Text-to-SQL Engine",
+      description: "A production-grade natural language to SQL query engine with Redis caching, Kafka observability, and a self-correcting generation loop. Achieved 73.5% execution accuracy on the Spider benchmark.",
+      technologies: ["FastAPI", "Redis", "Kafka", "Docker", "Gemini API"],
+      features: [
+        "Thread-safe rate-limiting lock and exponential backoff retry handler",
+        "Redis caching layer reducing repeat query latency from ~980ms to 4.7ms",
+        "Kafka observability pipeline for real-time model drift detection",
+        "Self-correcting SQL generation loop recovering failed queries"
+      ],
+      date: "June 2026",
+      github: "https://github.com/Nishith-2711/LLM_powered_SQL",
+      demo: "#"
+    },
+    {
+      title: "Cricket BroadTrack System",
+      description: "Developed an advanced computer vision pipeline for broadcast camera tracking in cricket footage. The system performs precise 8-parameter camera pose estimation, handling severe occlusions by combining custom YOLO keypoint detection with SAM3-guided segmentation to achieve drift-free, broadcast-quality tracking.",
+      technologies: ["Python", "PyTorch", "YOLOv8", "SAM3", "OpenCV", "SciPy"],
+      features: [
+        "Engineered a two-pass geometric optimization pipeline minimizing reprojection error across 8 camera parameters (rotation, translation, focal length, distortion)",
+        "Trained custom YOLO models to detect cricket pitch keypoints robustly across diverse broadcast angles",
+        "Implemented advanced occlusion handling using SAM3 binary masks and dynamic edge-based residuals for continuous tracking when keypoints are blocked",
+        "Developed a physical tripod constraint model utilizing robust statistics to lock the camera pivot point, yielding highly stable and drift-free outputs"
+      ],
+      date: "May 2026",
+      github: "https://github.com/Nishith-2711/cricket-broadtrack",
+      demo: "#"
+    },
+    {
       title: "Cricket Video Stabilizer",
       description: "Full-stack asynchronous video processing service that removes camera shake from cricket footage using classical computer vision. Demonstrates system design with async job queues, real-time processing, and containerized deployment.",
       technologies: ["FastAPI", "Redis/RQ", "OpenCV", "FFmpeg", "Docker"],
